@@ -12,4 +12,4 @@ docker image ls
 # Step 3: 
 # Run flask app
 
-docker run -p 80:80 phalligan/kubernetes-ml-app:0.0.1
+docker run -p 8000:80 phalligan/kubernetes-ml-app:0.0.1

@@ -1,0 +1,15 @@
+peter:~/environment/kubernetes_ML_app (master) $ ./run_kubernetes.sh 
+Flag --generator has been deprecated, has no effect and will be removed in the future.
+pod/kubernetes-ml-app created
+NAME                READY   STATUS              RESTARTS   AGE
+kubernetes-ml-app   0/1     ContainerCreating   0          0s
+Error from server (NotFound): pods "flaskskearlndemo" not found
+peter:~/environment/kubernetes_ML_app (master) $ ./run_kubernetes.sh 
+Flag --generator has been deprecated, has no effect and will be removed in the future.
+Error from server (AlreadyExists): pods "kubernetes-ml-app" already exists
+NAME                READY   STATUS    RESTARTS   AGE
+kubernetes-ml-app   1/1     Running   0          40s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000

@@ -5,14 +5,14 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
-dockerpath="phalligan/kubernetes-ml-app"
+dockerpath="phalligan/kubernetes-ml-app:latest"
 # Step 2
 # Run the Docker Hub container with kubernetes
 
 kubectl run kubernetes-ml-app\
     --generator=run-pod/v1\
     --image=$dockerpath\
-    --port=80 --labels app=flaskskearlndemo
+    --port=80 --labels app=ml-app
 
 # Step 3:
 # List kubernetes pods

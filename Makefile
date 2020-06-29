@@ -14,9 +14,11 @@ install:
 	# This should be run from inside a virtualenv
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt &&\
-	wget -O /tmp/hadolint https\://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-                chmod +x /tmp/hadolint && sudo mv /tmp/hadolint /usr/local/bin/hadolint
-    curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https\://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+	wget -O /bin/hadolint https\://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
+                chmod +x /bin/hadolint
+
+install-k8s:
+	curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https\://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
   && chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl
 	curl -Lo minikube https\://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube && sudo install minikube /usr/local/bin/
@@ -33,6 +35,14 @@ test:
 	# Additional, optional, tests could go here
 	#python -m pytest -vv --cov=myrepolib tests/*.py
 	#python -m pytest --nbval notebook.ipynb
+	
+validate-circleci:
+	# See https://circleci.com/docs/2.0/local-cli/#processing-a-config
+	circleci config process .circleci/config.yml
+
+run-circleci-local:
+	# See https://circleci.com/docs/2.0/local-cli/#running-a-job
+	circleci local execute
 
 lint:
 	# See local hadolint install instructions:   https://github.com/hadolint/hadolint

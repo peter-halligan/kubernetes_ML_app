@@ -40,5 +40,17 @@ jobs:
           name: run lint
           command: |
             . venv/bin/activate
-            make lint 
+            make lint
+      
+      - run:
+          name: build docker
+          command: |
+            . vevnv/bin/activate
+            ./run_docker.sh
+      
+      - run:
+          name: push image
+          command: |
+            ./upload_docker.sh 
+         
 

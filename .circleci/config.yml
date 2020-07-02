@@ -44,12 +44,12 @@ jobs:
             
       - setup_remote_docker
       - run:
-          name: build docker
+          name: build docker and push
           command: |
             . venv/bin/activate
-            ./run_docker.sh
-    
-      - run:
-          name: push image
-          command: |
-            ./upload_docker.sh 
+            TAG=0.1.$CIRCLE_BUILD_NUM
+            docker build -t phalligan/kubernetes-ml-app:$TAG .
+            docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+            docker tag "phalligan/kubernetes-ml-app:$TAG" "$halligan/kubernetes-ml-app:latest"
+            docker push "phalligan/kubernetes-ml-app:$TAG" 
+            docker push "$phalligan/kubernetes-ml-app:latest"

@@ -40,14 +40,16 @@ jobs:
           name: run lint
           command: |
             . venv/bin/activate
-            make lint 
-
+            make lint
+            
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: build docker
           command: |
             . venv/bin/activate
             ./run_docker.sh
-      
+    
       - run:
           name: push image
           command: |

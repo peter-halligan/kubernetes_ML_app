@@ -2,6 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
+
 version: 2
 jobs:
   build:
@@ -41,8 +42,13 @@ jobs:
           command: |
             . venv/bin/activate
             make lint
-            
-      - setup_remote_docker
+deploy:
+    machinre:
+
+    working_directory: ~/kubernetes_ML_app
+
+    steps:
+      - checkout
       - run:
           name: build docker and push
           command: |
@@ -53,3 +59,5 @@ jobs:
             docker tag "phalligan/kubernetes-ml-app:$TAG" "$halligan/kubernetes-ml-app:latest"
             docker push "phalligan/kubernetes-ml-app:$TAG" 
             docker push "$phalligan/kubernetes-ml-app:latest"
+            
+  

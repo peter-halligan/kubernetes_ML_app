@@ -45,7 +45,7 @@ jobs:
   deploy:
     machine: true
 
-    working_directory: ~/kubernetes_ML_appmachinre
+    working_directory: ~/kubernetes_ML_app
 
     steps:
       - checkout

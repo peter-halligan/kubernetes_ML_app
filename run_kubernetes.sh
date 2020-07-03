@@ -5,7 +5,9 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
-dockerpath="phalligan/kubernetes-ml-app:latest"
+PATCH=$1
+version=1.0.${PATCH}
+dockerpath="phalligan/kubernetes-ml-app:${version}"
 # Step 2
 # Run the Docker Hub container with kubernetes
 

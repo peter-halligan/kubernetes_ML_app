@@ -10,9 +10,8 @@
 
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=$1
+dockerpath=phalligan/kubernetes-ml-app
 version=$2
-
 
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"

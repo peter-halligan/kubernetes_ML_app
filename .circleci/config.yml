@@ -54,10 +54,7 @@ jobs:
           command: |
             TAG=0.1.$CIRCLE_BUILD_NUM
             docker build -t phalligan/kubernetes-ml-app:$TAG .
-            docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-            docker tag "phalligan/kubernetes-ml-app:$TAG" "$halligan/kubernetes-ml-app:latest"
-            docker push "phalligan/kubernetes-ml-app:$TAG" 
-            docker push "$phalligan/kubernetes-ml-app:latest"
+            ./upload_docker.sh $TAG
             
 
 workflows:

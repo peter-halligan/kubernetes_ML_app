@@ -43,7 +43,7 @@ jobs:
             . venv/bin/activate
             make lint
   deploy:
-    machinre:
+    machine:
 
     working_directory: ~/kubernetes_ML_app
 

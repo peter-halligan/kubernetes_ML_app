@@ -1,6 +1,6 @@
 # kubernetes_ML_app
 Build status:
-[![phalligan](https://circleci.com/gh/phalligan/kubernetes_ML_app.svg?style=svg)](https://app.circleci.com/pipelines/github/peter-halligan/kubernetes_ML_app)
+[![peter-halligan](https://circleci.com/gh/peter-halligan/kubernetes_ML_app.svg?style=svg)](https://app.circleci.com/pipelines/github/peter-halligan/kubernetes_ML_app)
 Repo to build and a deploy an operationalised ML app
 
 flask app to return a house value prediction based on the boston housing data set.  
@@ -33,35 +33,35 @@ It will respond to a post request with a test payload:
 
 ### setup env
 
-clone this repo
-`make setup`
-`source ~/.devops`
-`run make install`
-`make install-k8s` (optional to install minikube && kubesctl)
-`make lint`
+1. clone this repo
+2. `make setup`  
+3. `source ~/.devops`
+4. `run make install`
+5. `make install-k8s` (optional to install minikube && kubectl)
+6. `make lint`
 
 
 
 ### Docker 
-To spin up a contianer locally which can be queried on localhost:8000:
-```run_docker.sh <patch number> ``` builds and runs an image
+To builds an image and d runs a contianer locally which can be queried on localhost:8000:  
+```run_docker.sh <patch number> ``` 
 
-test local container by making a post request to localhost:8000:
+test local container by making a post request to localhost:8000:  
 ```make_prediction.sh```
 
-run the app in minikube:
+run the app in minikube:  
 ```run_kubernetes.sh <patch number>``
 
-run the pplication outside of container:
+run the pplication outside of container:  
 ```python app.py```
 
 ### Building 
 
-the app can be built by running `run_docker.sh` you will need to change the name of the image/repo
-the image can be pushed using `upload_docker.sh` again script will need to be changed
-to upload the image your username and password should be set as an environment var
-`export DOCKER_USERNAME=dockerhubusername`
-`export DOCKER_PASSWORD=dockerhubpassword`
+1. change the name of the image/repo in upload_docker.sh
+2. `export DOCKER_USERNAME=dockerhubusername`
+3. `export DOCKER_PASSWORD=dockerhubpassword`
+4. Build locally by running `run_docker.sh`
+
 
 
 ### circleci

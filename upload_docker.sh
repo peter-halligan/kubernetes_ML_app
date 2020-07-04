@@ -5,13 +5,14 @@
 # to upload an image ensure that DOCKER_USERNAME and DOCKER PASSWORD are set
 # $ export DOCKER_USERNAME=username
 # $ export DOCKER_PASSWORD=password
-# expects 1 arg image name user/repo 
-#  ./upload_docker.sh phalligan/kubernetes-ml-app
+# expects 1 arg version
+#  ./upload_docker.sh version
 
 # Create dockerpath
 # dockerpath=<your docker ID/path>
 dockerpath=phalligan/kubernetes-ml-app
-version=$2
+version=$1
+echo $version
 
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"

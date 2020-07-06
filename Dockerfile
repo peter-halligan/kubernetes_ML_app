@@ -1,5 +1,6 @@
 FROM python:3.7.3-stretch
 
+ENV PYTHONUNBUFFERED=1
 ## Step 1:
 # Create a working directory
 WORKDIR /app

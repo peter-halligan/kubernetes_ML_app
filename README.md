@@ -52,7 +52,7 @@ Test local container by making a post request to localhost:8000:
 Run the app in minikube:  
 ```run_kubernetes.sh <version number>``
 
-example: ``./run_kubernetes.sh 1.0.33`
+example: ``./run_kubernetes.sh 0.1.33`
 
 Run the application outside of a container:  
 ```python app.py```
@@ -63,6 +63,7 @@ Run the application outside of a container:
 2. `export DOCKER_USERNAME=dockerhubusername`
 3. `export DOCKER_PASSWORD=dockerhubpassword`
 4. Build locally by running `run_docker.sh`
+5. example: `./run_kubernetes.sh 0.1.33`
 
 
 

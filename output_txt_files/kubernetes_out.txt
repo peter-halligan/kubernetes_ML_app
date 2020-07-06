@@ -1,15 +1,41 @@
-peter:~/environment/kubernetes_ML_app (master) $ ./run_kubernetes.sh 
-Flag --generator has been deprecated, has no effect and will be removed in the future.
-pod/kubernetes-ml-app created
-NAME                READY   STATUS              RESTARTS   AGE
-kubernetes-ml-app   0/1     ContainerCreating   0          0s
-Error from server (NotFound): pods "flaskskearlndemo" not found
-peter:~/environment/kubernetes_ML_app (master) $ ./run_kubernetes.sh 
+(.devops) peter:~/environment/kubernetes_ML_app (master) $ ./run_kubernetes.sh 1
 Flag --generator has been deprecated, has no effect and will be removed in the future.
 Error from server (AlreadyExists): pods "kubernetes-ml-app" already exists
 NAME                READY   STATUS    RESTARTS   AGE
-kubernetes-ml-app   1/1     Running   0          40s
+kubernetes-ml-app   1/1     Running   0          23s
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000
 Handling connection for 8000
+
+
+peter:~/environment/kubernetes_ML_app (master) $ kubectl logs kubernetes-ml-app                                                                                          
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 262-253-076
+[2020-07-06 06:32:09,028] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-07-06 06:32:09,044] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-06 06:32:09,054] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-06 06:32:09,057] INFO in app: Prediction: [20.35373177134412]
+127.0.0.1 - - [06/Jul/2020 06:32:09] "POST /predict HTTP/1.1" 200 -
+[2020-07-06 06:32:34,725] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-07-06 06:32:34,736] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-06 06:32:34,746] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-06 06:32:34,749] INFO in app: Prediction: [20.35373177134412]
+127.0.0.1 - - [06/Jul/2020 06:32:34] "POST /predict HTTP/1.1" 200 -

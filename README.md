@@ -50,7 +50,9 @@ Test local container by making a post request to localhost:8000:
 ```make_prediction.sh```
 
 Run the app in minikube:  
-```run_kubernetes.sh <patch number>``
+```run_kubernetes.sh <version number>``
+
+example: ``./run_kubernetes.sh 1.0.33`
 
 Run the application outside of a container:  
 ```python app.py```
